@@ -7,6 +7,7 @@ namespace CurvesLib
 	{
 	public:
 		Circle(double r);
+		double GetRadius() const;
 
 		Point GetPoint(double t) const override;
 		Point Derivative(double t) const override;

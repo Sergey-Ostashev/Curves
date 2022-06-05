@@ -13,9 +13,10 @@ namespace CurvesLib
 
 	CURVESLIB_API std::ostream& operator<<(std::ostream& s, const Point& p);
 
-	class Curve
+	class CURVESLIB_API Curve
 	{
 	public:
+		size_t GetTypeHash() const;
 		virtual Point GetPoint(double t) const = 0;
 		virtual Point Derivative(double t) const = 0;
 	};

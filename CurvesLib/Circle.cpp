@@ -5,6 +5,11 @@ namespace CurvesLib
 {
 	Circle::Circle(double r) : m_r(r) {}
 
+	double Circle::GetRadius() const
+	{
+		return m_r;
+	}
+
 	Point Circle::GetPoint(double t) const
 	{
 		return { m_r * cos(t), m_r * sin(t), 0 };
