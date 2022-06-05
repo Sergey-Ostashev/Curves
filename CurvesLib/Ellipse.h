@@ -3,7 +3,7 @@
 
 namespace CurvesLib
 {
-	class Ellipse : public Curve
+	class CURVESLIB_API Ellipse : public Curve
 	{
 	public:
 		Ellipse(double rx, double ry);

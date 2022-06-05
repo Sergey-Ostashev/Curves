@@ -2,9 +2,19 @@
 //
 
 #include <iostream>
+#include <memory>
+#include <vector>
+
+#include "Circle.h"
+#pragma comment(lib, "CurvesLib.lib")
+
+using namespace std;
+using namespace CurvesLib;
 
 int main()
 {
+	std::vector<std::shared_ptr<Curve>> curves;
+	curves.push_back(make_shared<Circle>(1));
     std::cout << "Hello World!\n";
 }
 

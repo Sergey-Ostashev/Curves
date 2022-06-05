@@ -3,7 +3,7 @@
 
 namespace CurvesLib
 {
-	class Helix : public Curve
+	class CURVESLIB_API Helix : public Curve
 	{
 	public:
 		Helix(double r, double step);

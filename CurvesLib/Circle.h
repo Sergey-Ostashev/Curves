@@ -3,7 +3,7 @@
 
 namespace CurvesLib
 {
-	class Circle : public Curve
+	class CURVESLIB_API Circle : public Curve
 	{
 	public:
 		Circle(double r);

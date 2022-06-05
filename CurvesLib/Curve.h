@@ -1,5 +1,7 @@
 #pragma once
 #include <ostream>
+#include <typeinfo>
+#include "CurvesLib.h"
 
 namespace CurvesLib
 {
@@ -9,7 +11,7 @@ namespace CurvesLib
 		double m_z;
 	};
 
-	std::ostream& operator<<(std::ostream& s, const Point& p);
+	CURVESLIB_API std::ostream& operator<<(std::ostream& s, const Point& p);
 
 	class Curve
 	{
