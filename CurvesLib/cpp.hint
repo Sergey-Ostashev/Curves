@@ -1,0 +1,2 @@
+#define CURVESLIB_API __declspec(dllexport)
+#define CURVESLIB_API __declspec(dllimport)
