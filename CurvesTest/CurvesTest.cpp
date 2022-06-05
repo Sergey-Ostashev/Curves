@@ -1,10 +1,13 @@
 // CurvesTest.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include <math.h>
+#define _USE_MATH_DEFINES
 #include <algorithm>
 #include <iostream>
 #include <memory>
 #include <numeric>
+#include <random>
 #include <vector>
 
 #include "Circle.h"
@@ -17,18 +20,66 @@ using namespace CurvesLib;
 
 int main()
 {
-	vector<shared_ptr<Curve>> curves;
-	curves.push_back(make_shared<Circle>(8));
-	curves.push_back(make_shared<Ellipse>(2, 3));
-	curves.push_back(make_shared<Helix>(5, 1));
-	curves.push_back(make_shared<Circle>(7));
+	const uint32_t MAX_CURVES_COUNT = 20;
 
-	vector<shared_ptr<Circle>> circles;
+	const int CIRCLE_MARK = 1;
+	const int ELLIPSE_MARK = 2;
+	const int HELIX_MARK = 3;
+
+	constexpr double MAX_RADIUS = 1000;// numeric_limits<double>::max() / MAX_CURVES_COUNT;
+
+	using CurvePtr = shared_ptr<Curve>;
+	using CirclePtr = shared_ptr<Circle>;
+	using CurvesVector = vector<CurvePtr>;
+	using CircleVector = vector<CirclePtr>;
+
+	CurvesVector curves;
+	
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> int_distrib(CIRCLE_MARK, HELIX_MARK);
+	std::uniform_real_distribution<> real_distrib(0, 1000);
+
+	for (uint32_t i = 0; i < MAX_CURVES_COUNT; i++)
+	{
+		int mark = int_distrib(gen);
+		if (mark == CIRCLE_MARK)
+		{
+			double r = real_distrib(gen);
+			curves.push_back(static_pointer_cast<Curve>(make_shared<Circle>(r)));
+		}
+		else if (mark == ELLIPSE_MARK)
+		{
+			double rx = real_distrib(gen);
+			double ry = real_distrib(gen);
+			curves.push_back(static_pointer_cast<Curve>(make_shared<Ellipse>(rx, ry)));
+		}
+		else
+		{
+			double r = real_distrib(gen);
+			double step = real_distrib(gen);
+			curves.push_back(static_pointer_cast<Curve>(make_shared<Helix>(r, step)));
+		}
+	}
+
+	cout << "\nAll curves:\n" << endl;
+	for_each(curves.begin(), curves.end(), [](const auto& c)
+		{
+			cout << c->Description().c_str() << endl;
+			cout << "Value at t=PI/4: " << c->GetPoint(M_PI / 4) << ", derivative: " << c->Derivative(M_PI / 4) << endl;
+		}
+	);
+
+	CircleVector circles;
+	cout << "\nCircles:\n" << endl;
 	for_each(curves.begin(), curves.end(), [&circles](const auto& c)
 		{
-			cout << c->Description().c_str();
 			if (c->GetTypeHash() == typeid(Circle).hash_code())
-				circles.push_back(static_pointer_cast<Circle>(c));
+			{
+				auto circle = static_pointer_cast<Circle>(c);
+				circles.push_back(circle);
+				cout << circle->Description().c_str() << endl;
+			}
 		}
 	);
 
@@ -37,22 +88,18 @@ int main()
 			return a->GetRadius() < b->GetRadius();
 		});
 
+	cout << "\nSorted circles:\n" << endl;
+	for_each(circles.begin(), circles.end(), [&circles](const auto& c)
+		{
+			cout << c->Description().c_str() << endl;
+		}
+	);
+
 	auto radius_sum = accumulate(circles.begin(), circles.end(), 0.0, [](const auto& a, const auto& b)
 		{
 			return a + b->GetRadius();
 		}
 	);
 
-    cout << "Hello World!\n";
+	cout << "\nSum of radii of all circles: " << radius_sum << endl;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

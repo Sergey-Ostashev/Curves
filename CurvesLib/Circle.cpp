@@ -23,7 +23,7 @@ namespace CurvesLib
 	std::string Circle::Description() const
 	{
 		std::stringstream s;
-		s << "Circle: radius = " << GetRadius() << std::endl;
+		s << "Circle: radius = " << GetRadius();
 		return s.str();
 	}
 }

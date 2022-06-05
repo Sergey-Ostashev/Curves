@@ -28,7 +28,7 @@ namespace CurvesLib
 	std::string Ellipse::Description() const
 	{
 		std::stringstream s;
-		s << "Ellipse: radius along X axe = " << GetRadiusX() << ", radius along Y axe = " << GetRadiusY() << std::endl;
+		s << "Ellipse: radius along X axis = " << GetRadiusX() << ", radius along Y axis = " << GetRadiusY();
 		return s.str();
 	}
 }

@@ -12,7 +12,7 @@ namespace CurvesLib
 
 	Point Helix::Derivative(double t) const
 	{
-		return { -m_r * sin(t), m_r * cos(t), 0.5 / M_PI };
+		return { -m_r * sin(t), m_r * cos(t), m_step / (2 * M_PI) };
 	}
 
 	double Helix::GetRadius() const
@@ -28,7 +28,7 @@ namespace CurvesLib
 	std::string Helix::Description() const
 	{
 		std::stringstream s;
-		s << "Helix: radius = " << GetRadius() << ", step = " << GetStep() << std::endl;
+		s << "Helix: radius = " << GetRadius() << ", step = " << GetStep();
 		return s.str();
 	}
 }
