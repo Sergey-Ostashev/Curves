@@ -1,5 +1,6 @@
 #pragma once
 #include <ostream>
+#include <string>
 #include <typeinfo>
 #include "CurvesLib.h"
 
@@ -17,6 +18,7 @@ namespace CurvesLib
 	{
 	public:
 		size_t GetTypeHash() const;
+		virtual std::string Description() const = 0;
 		virtual Point GetPoint(double t) const = 0;
 		virtual Point Derivative(double t) const = 0;
 	};

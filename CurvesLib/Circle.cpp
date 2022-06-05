@@ -19,4 +19,11 @@ namespace CurvesLib
 	{
 		return { -m_r * sin(t), m_r * cos(t), 0 };
 	}
+
+	std::string Circle::Description() const
+	{
+		std::stringstream s;
+		s << "Circle: radius = " << GetRadius() << std::endl;
+		return s.str();
+	}
 }

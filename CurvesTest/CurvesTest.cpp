@@ -26,6 +26,7 @@ int main()
 	vector<shared_ptr<Circle>> circles;
 	for_each(curves.begin(), curves.end(), [&circles](const auto& c)
 		{
+			cout << c->Description().c_str();
 			if (c->GetTypeHash() == typeid(Circle).hash_code())
 				circles.push_back(static_pointer_cast<Circle>(c));
 		}

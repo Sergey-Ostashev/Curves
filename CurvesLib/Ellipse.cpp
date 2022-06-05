@@ -14,4 +14,21 @@ namespace CurvesLib
 	{
 		return { -m_rx * sin(t), m_ry * cos(t), 0 };
 	}
+
+	double Ellipse::GetRadiusX() const
+	{
+		return m_rx;
+	}
+
+	double Ellipse::GetRadiusY() const
+	{
+		return m_ry;
+	}
+
+	std::string Ellipse::Description() const
+	{
+		std::stringstream s;
+		s << "Ellipse: radius along X axe = " << GetRadiusX() << ", radius along Y axe = " << GetRadiusY() << std::endl;
+		return s.str();
+	}
 }

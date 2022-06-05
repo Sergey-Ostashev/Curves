@@ -14,4 +14,21 @@ namespace CurvesLib
 	{
 		return { -m_r * sin(t), m_r * cos(t), 0.5 / M_PI };
 	}
+
+	double Helix::GetRadius() const
+	{
+		return m_r;
+	}
+
+	double Helix::GetStep() const
+	{
+		return m_step;
+	}
+
+	std::string Helix::Description() const
+	{
+		std::stringstream s;
+		s << "Helix: radius = " << GetRadius() << ", step = " << GetStep() << std::endl;
+		return s.str();
+	}
 }

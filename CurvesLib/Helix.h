@@ -7,7 +7,9 @@ namespace CurvesLib
 	{
 	public:
 		Helix(double r, double step);
-
+		double GetRadius() const;
+		double GetStep() const;
+		std::string Description() const override;
 		Point GetPoint(double t) const override;
 		Point Derivative(double t) const override;
 	private:

@@ -7,6 +7,9 @@ namespace CurvesLib
 	{
 	public:
 		Ellipse(double rx, double ry);
+		double GetRadiusX() const;
+		double GetRadiusY() const;
+		std::string Description() const override;
 		Point GetPoint(double t) const override;
 		Point Derivative(double t) const override;
 	private:

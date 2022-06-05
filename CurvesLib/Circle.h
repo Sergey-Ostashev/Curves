@@ -9,8 +9,10 @@ namespace CurvesLib
 		Circle(double r);
 		double GetRadius() const;
 
+		std::string Description() const override;
 		Point GetPoint(double t) const override;
 		Point Derivative(double t) const override;
+
 	private:
 		double m_r;
 	};
