@@ -2,7 +2,7 @@
 #include "Curve.h"
 #include "Consts.h"
 
-namespace CurvesLib
+namespace curves
 {
 	class CURVESLIB_API Ellipse : public CurveImpl<ELLIPSE_TYPE_ID>
 	{

@@ -2,7 +2,7 @@
 #include <ostream>
 #include "CurvesLib.h"
 
-namespace CurvesLib
+namespace curves
 {
 	struct Point {
 		double m_x;

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Ellipse.h"
 
-namespace CurvesLib
+namespace curves
 {
 	Ellipse::Ellipse(double rx, double ry) : m_rx(rx), m_ry(ry) {}
 

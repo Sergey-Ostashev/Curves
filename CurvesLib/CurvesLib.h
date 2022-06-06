@@ -9,14 +9,3 @@
 #else
 #define CURVESLIB_API __declspec(dllimport)
 #endif
-
-// This class is exported from the dll
-class CURVESLIB_API CCurvesLib {
-public:
-	CCurvesLib(void);
-	// TODO: add your methods here.
-};
-
-extern CURVESLIB_API int nCurvesLib;
-
-CURVESLIB_API int fnCurvesLib(void);

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Circle.h"
 
-namespace CurvesLib
+namespace curves
 {
 	Circle::Circle(double r) : m_r(r) {}
 

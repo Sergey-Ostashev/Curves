@@ -2,7 +2,7 @@
 #include <string>
 #include "Point.h"
 
-namespace CurvesLib
+namespace curves
 {
 	class CURVESLIB_API Curve
 	{

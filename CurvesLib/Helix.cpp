@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Helix.h"
 
-namespace CurvesLib
+namespace curves
 {
 	Helix::Helix(double r, double step) : m_r(r), m_step(step) {}
 

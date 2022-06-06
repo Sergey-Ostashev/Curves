@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Point.h"
 
-namespace CurvesLib
+namespace curves
 {
 	std::ostream& operator<<(std::ostream& s, const Point& p)
 	{

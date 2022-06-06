@@ -16,7 +16,7 @@
 #pragma comment(lib, "CurvesLib.lib")
 
 using namespace std;
-using namespace CurvesLib;
+using namespace curves;
 
 int main()
 {

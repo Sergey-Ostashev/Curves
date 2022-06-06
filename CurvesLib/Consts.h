@@ -1,6 +1,6 @@
 #pragma once
 
-namespace CurvesLib
+namespace curves
 {
 	const int CIRCLE_TYPE_ID = 1;
 	const int ELLIPSE_TYPE_ID = CIRCLE_TYPE_ID + 1;
