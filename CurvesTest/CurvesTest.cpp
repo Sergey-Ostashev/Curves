@@ -69,7 +69,7 @@ int main()
 	cout << "\nCircles:\n" << endl;
 	for_each(curves.begin(), curves.end(), [&circles](const auto& c)
 		{
-			if (c->GetTypeId() == 1)
+			if (c->GetTypeId() == CIRCLE_TYPE_ID)
 			{
 				auto circle = static_pointer_cast<Circle>(c);
 				circles.push_back(circle);
@@ -90,11 +90,11 @@ int main()
 		}
 	);
 
-	auto radius_sum = accumulate(circles.begin(), circles.end(), 0.0, [](const auto& a, const auto& b)
+	auto radii_sum = accumulate(circles.begin(), circles.end(), 0.0, [](const auto& a, const auto& b)
 		{
 			return a + b->GetRadius();
 		}
 	);
 
-	cout << "\nSum of radii of all circles: " << radius_sum << endl;
+	cout << "\nSum of radii of all circles: " << radii_sum << endl;
 }
