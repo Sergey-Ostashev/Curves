@@ -1,9 +1,10 @@
 #pragma once
 #include "Curve.h"
+#include "Consts.h"
 
 namespace CurvesLib
 {
-	class CURVESLIB_API Helix : public Curve
+	class CURVESLIB_API Helix : public CurveImpl<HELIX_TYPE_ID>
 	{
 	public:
 		Helix(double r, double step);

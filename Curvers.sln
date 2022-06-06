@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CurvesLib", "CurvesLib\CurvesLib.vcxproj", "{E1D95902-AF5D-40F3-9B1A-A548FB6EAAC9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CurvesTest", "CurvesTest\CurvesTest.vcxproj", "{04FAB949-A8E5-4128-817C-7A4348D0C812}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E1D95902-AF5D-40F3-9B1A-A548FB6EAAC9} = {E1D95902-AF5D-40F3-9B1A-A548FB6EAAC9}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

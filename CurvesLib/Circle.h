@@ -1,9 +1,10 @@
 #pragma once
 #include "Curve.h"
+#include "Consts.h"
 
 namespace CurvesLib
 {
-	class CURVESLIB_API Circle : public Curve
+	class CURVESLIB_API Circle : public CurveImpl<CIRCLE_TYPE_ID>
 	{
 	public:
 		Circle(double r);

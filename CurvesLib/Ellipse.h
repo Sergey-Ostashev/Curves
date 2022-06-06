@@ -1,9 +1,10 @@
 #pragma once
 #include "Curve.h"
+#include "Consts.h"
 
 namespace CurvesLib
 {
-	class CURVESLIB_API Ellipse : public Curve
+	class CURVESLIB_API Ellipse : public CurveImpl<ELLIPSE_TYPE_ID>
 	{
 	public:
 		Ellipse(double rx, double ry);

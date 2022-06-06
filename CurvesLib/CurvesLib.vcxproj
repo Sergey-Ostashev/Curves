@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Consts.h" />
     <ClInclude Include="Curve.h" />
     <ClInclude Include="CurvesLib.h" />
     <ClInclude Include="Ellipse.h" />
@@ -173,7 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
-    <ClCompile Include="Curve.cpp" />
     <ClCompile Include="CurvesLib.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Ellipse.cpp" />

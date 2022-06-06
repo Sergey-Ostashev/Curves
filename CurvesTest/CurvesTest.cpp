@@ -21,12 +21,7 @@ using namespace CurvesLib;
 int main()
 {
 	const uint32_t MAX_CURVES_COUNT = 20;
-
-	const int CIRCLE_MARK = 1;
-	const int ELLIPSE_MARK = 2;
-	const int HELIX_MARK = 3;
-
-	constexpr double MAX_RADIUS = 1000;// numeric_limits<double>::max() / MAX_CURVES_COUNT;
+	const double MAX_RADIUS = 1000;
 
 	using CurvePtr = shared_ptr<Curve>;
 	using CirclePtr = shared_ptr<Circle>;
@@ -37,18 +32,18 @@ int main()
 	
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> int_distrib(CIRCLE_MARK, HELIX_MARK);
+	std::uniform_int_distribution<> int_distrib(CIRCLE_TYPE_ID, HELIX_TYPE_ID);
 	std::uniform_real_distribution<> real_distrib(0, 1000);
 
 	for (uint32_t i = 0; i < MAX_CURVES_COUNT; i++)
 	{
 		int mark = int_distrib(gen);
-		if (mark == CIRCLE_MARK)
+		if (mark == CIRCLE_TYPE_ID)
 		{
 			double r = real_distrib(gen);
 			curves.push_back(static_pointer_cast<Curve>(make_shared<Circle>(r)));
 		}
-		else if (mark == ELLIPSE_MARK)
+		else if (mark == ELLIPSE_TYPE_ID)
 		{
 			double rx = real_distrib(gen);
 			double ry = real_distrib(gen);
@@ -74,7 +69,7 @@ int main()
 	cout << "\nCircles:\n" << endl;
 	for_each(curves.begin(), curves.end(), [&circles](const auto& c)
 		{
-			if (c->GetTypeHash() == typeid(Circle).hash_code())
+			if (c->GetTypeId() == 1)
 			{
 				auto circle = static_pointer_cast<Circle>(c);
 				circles.push_back(circle);
@@ -89,7 +84,7 @@ int main()
 		});
 
 	cout << "\nSorted circles:\n" << endl;
-	for_each(circles.begin(), circles.end(), [&circles](const auto& c)
+	for_each(circles.begin(), circles.end(), [](const auto& c)
 		{
 			cout << c->Description().c_str() << endl;
 		}
