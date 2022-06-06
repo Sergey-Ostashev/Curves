@@ -4,7 +4,7 @@
 
 namespace curves
 {
-	class CURVESLIB_API Circle : public CurveImpl<CIRCLE_TYPE_ID>
+	class CURVESLIB_API Circle : public CurveT<CIRCLE_TYPE_ID>
 	{
 	public:
 		Circle(double r);

@@ -4,7 +4,7 @@
 
 namespace curves
 {
-	class CURVESLIB_API Ellipse : public CurveImpl<ELLIPSE_TYPE_ID>
+	class CURVESLIB_API Ellipse : public CurveT<ELLIPSE_TYPE_ID>
 	{
 	public:
 		Ellipse(double rx, double ry);

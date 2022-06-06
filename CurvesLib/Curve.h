@@ -17,10 +17,10 @@ namespace curves
 	};
 
 	template<int CurveId>
-	class CurveImpl : public Curve
+	class CurveT : public Curve
 	{
 	public:
-		CurveImpl() : Curve(CurveId) {}
+		CurveT() : Curve(CurveId) {}
 	};
 }
 

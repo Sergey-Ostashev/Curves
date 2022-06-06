@@ -4,7 +4,7 @@
 
 namespace curves
 {
-	class CURVESLIB_API Helix : public CurveImpl<HELIX_TYPE_ID>
+	class CURVESLIB_API Helix : public CurveT<HELIX_TYPE_ID>
 	{
 	public:
 		Helix(double r, double step);
