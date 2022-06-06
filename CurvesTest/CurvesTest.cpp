@@ -9,6 +9,7 @@
 #include <numeric>
 #include <random>
 #include <vector>
+#include <omp.h>
 
 #include "Circle.h"
 #include "Ellipse.h"
@@ -90,11 +91,13 @@ int main()
 		}
 	);
 
-	auto radii_sum = accumulate(circles.begin(), circles.end(), 0.0, [](const auto& a, const auto& b)
-		{
-			return a + b->GetRadius();
-		}
-	);
+	omp_set_dynamic(0);
+	omp_set_num_threads(2);
+
+	double radii_sum = 0;
+#pragma omp parallel for shared(circles, radii_sum)
+	for (int i = 0; i < circles.size(); i++)
+		radii_sum += circles[i]->GetRadius();
 
 	cout << "\nSum of radii of all circles: " << radii_sum << endl;
 }
